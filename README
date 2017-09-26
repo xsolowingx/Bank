@@ -1,0 +1,12 @@
+This program is simple, but simulate a "mini" bank.
+
+=====To compile======:
+Access the file with the terminal , and type make.
+
+===Author===:
+Matheus de Jesus Leandro de Medeiros.
+==================================================
+To execute:
+Acces the folder "bin" , and type ./BANK and you will see a "menu", and after that, is 
+up to you to choose.
+======================================================================================
