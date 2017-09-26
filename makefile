@@ -11,9 +11,9 @@ BIN_DIR = ./bin
 SRC_DIR = ./src
 OBJ_DIR = ./build
 #object variable
-OBJECT = $(OBJ_DIR)/operation.o $(OBJ_DIR)/account.o $(OBJ_DIR)/main.o
+OBJECT = $(OBJ_DIR)/operation.o $(OBJ_DIR)/account.o $(OBJ_DIR)/main.o $(OBJ_DIR)/bank.o
 #Headers
-ARQ_H = $(INC_DIR)/operation.h $(INC_DIR)/account.h
+ARQ_H = $(INC_DIR)/operation.h $(INC_DIR)/account.h $(INC_DIR)/bank.h
 
 
 all:	$(OBJECT)
@@ -31,6 +31,9 @@ $(OBJ_DIR)/account.o:	$(SRC_DIR)/account.cpp $(ARQ_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/main.o:	$(SRC_DIR)/main.cpp $(ARQ_H)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/bank.o:	$(SRC_DIR)/bank.cpp $(ARQ_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

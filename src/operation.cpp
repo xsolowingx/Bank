@@ -1,19 +1,22 @@
+/**
+ *@since 09/17/2017
+ *@file operation.cpp
+ *@brief this file contain the implementation of the class Operation.
+ *@author Matheus de Jesus Leandro de Medeiros
+ *@date 09/22/2017
+ */
 #include "../include/operation.h"
 
-int Operation::quantityOperations = 0;
+/*====Constructor======*/
 
 Operation::Operation(std::string _description,TypeOperation _type_operation,float _value)
 {
 	this->description = _description;
 	this->type_operation = _type_operation;
 	this->value = _value;
-	quantityOperations++;
 }
 
-int Operation::getQuantityOperations()
-{
-	return quantityOperations;
-}
+/*=====Get Methods======*/
 
 float Operation::getValue()
 {
@@ -30,10 +33,23 @@ TypeOperation Operation::getType_operation()
 	return type_operation;
 }
 
+/*=====Overload of the operator "<<"=======*/
+
 std::ostream& operator <<(std::ostream& o,Operation operation)
 {
-	o << "Description: " << operation.getDescription() << std::endl
-	<< "Operation: " << operation.getType_operation() << std::endl
-	<< "Value: " << operation.getValue() << std::endl;
+	o << "Description: " << operation.getDescription() << std::endl;
+	
+	if(operation.getType_operation() == Debit)
+	{
+		o << "Operation type: Debit" << std::endl;
+	}
+
+	else if(operation.getType_operation() == Credit)
+	{
+		o << "Operation type: Credit" << std::endl;
+	}
+
+	o << "Value: " << operation.getValue() << std::endl << std::endl;
+	
 	return o;
 }
